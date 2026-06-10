@@ -24,49 +24,68 @@
     .logo-redbull svg { height: 28px; width: auto; display: block; }
 
     .confirm-wrap {
-      max-width: 480px; margin: 48px auto 64px;
+      max-width: 480px; margin: 44px auto 64px;
       padding: 0 20px; text-align: center;
     }
 
     .check-circle {
-      width: 68px; height: 68px; border-radius: 50%;
+      width: 64px; height: 64px; border-radius: 50%;
       background: var(--green-light);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 24px;
+      margin: 0 auto 20px;
       animation: popIn .5s cubic-bezier(.17,.67,.35,1.4) both;
     }
     @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .check-path { stroke-dasharray: 50; stroke-dashoffset: 50; animation: drawCheck .4s .4s ease forwards; }
     @keyframes drawCheck { to { stroke-dashoffset: 0; } }
 
-    .confirm-event { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rb-red); margin-bottom: 8px; }
-    .confirm-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--green); margin-bottom: 8px; }
+    .confirm-event { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rb-red); margin-bottom: 6px; }
+    .confirm-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+
+    /* Station hero */
+    .station-hero {
+      font-size: clamp(52px, 18vw, 96px);
+      font-weight: 900; letter-spacing: -.04em; text-transform: uppercase;
+      line-height: .88; color: var(--black);
+      margin-bottom: 4px;
+    }
+    .station-type {
+      font-size: 11px; font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gray-muted); margin-bottom: 20px;
+    }
+
     .confirm-title {
-      font-size: clamp(30px, 9vw, 50px); font-weight: 900;
-      letter-spacing: -.03em; text-transform: uppercase; line-height: .93; margin-bottom: 18px;
+      font-size: clamp(28px, 8vw, 44px); font-weight: 900;
+      letter-spacing: -.03em; text-transform: uppercase; line-height: .93; margin-bottom: 16px;
     }
     .confirm-title span { color: var(--rb-red); display: block; }
-    .confirm-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 32px; }
+    .confirm-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 28px; }
 
-    /* Booking details from Calendly URL params */
     .details-card {
       background: var(--gray-light); border: 1px solid var(--gray-border);
-      padding: 0 22px; margin-bottom: 32px; text-align: left;
+      padding: 0 22px; margin-bottom: 28px; text-align: left;
     }
     .details-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 13px 0; border-bottom: 1px solid var(--gray-border); gap: 16px;
+      padding: 12px 0; border-bottom: 1px solid var(--gray-border); gap: 16px;
     }
     .details-row:last-child { border-bottom: none; }
     .detail-key { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-muted); flex-shrink: 0; }
     .detail-val { font-size: 13px; font-weight: 700; text-align: right; }
-    .detail-val.loading { color: var(--gray-muted); font-weight: 400; font-style: italic; }
-    .badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: var(--black); color: var(--white); padding: 4px 10px; }
+    .loading { color: var(--gray-muted); font-weight: 400; font-style: italic; font-size: 13px; }
 
-    .bring-title { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 12px; }
+    .bring-title { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 14px; }
     .bring-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; text-align: left; }
-    .bring-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; line-height: 1.5; }
-    .bring-list li::before { content: '–'; font-weight: 700; color: var(--gray-muted); flex-shrink: 0; margin-top: 1px; }
+    .bring-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 13px; line-height: 1.5;
+    }
+    .bring-list li .icon {
+      flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px;
+      background: var(--black); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 900;
+    }
 
     .btn-back {
       display: inline-flex; align-items: center; gap: 8px;
@@ -94,48 +113,48 @@
   <div class="confirm-wrap">
 
     <div class="check-circle">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+      <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
         <polyline class="check-path" points="7,18 15,26 29,10"
-          stroke="#1a7a3c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          stroke="#1a7a3c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
     <p class="confirm-event">RedBull Midsommer 2026</p>
     <p class="confirm-label">Booking confirmed</p>
+
+    <div class="station-hero">Air<br>brush</div>
+    <p class="station-type">Bucket Hat · T-Shirt · 20 June 2026</p>
+
     <h1 class="confirm-title">You're<span>all set.</span></h1>
     <p class="confirm-sub" id="greeting">
-      Your airbrush slot is confirmed. A professional artist will customize your bag live — see you there.
+      Your slot is confirmed. A professional artist will customize your piece live — freehand, unique every time.
     </p>
 
     <div class="details-card">
       <div class="details-row">
-        <span class="detail-key">Station</span>
-        <span class="detail-val"><span class="badge">Airbrush</span></span>
-      </div>
-      <div class="details-row">
         <span class="detail-key">Date</span>
-        <span class="detail-val" id="val-date">20 June 2026</span>
+        <span class="detail-val">20 June 2026</span>
       </div>
       <div class="details-row">
         <span class="detail-key">Time</span>
-        <span class="detail-val" id="val-time"><span class="loading">Loading…</span></span>
+        <span class="detail-val" id="val-time"><span class="loading">Loading...</span></span>
       </div>
       <div class="details-row">
         <span class="detail-key">Name</span>
-        <span class="detail-val" id="val-name"><span class="loading">Loading…</span></span>
+        <span class="detail-val" id="val-name"><span class="loading">Loading...</span></span>
       </div>
       <div class="details-row">
         <span class="detail-key">Confirmation</span>
-        <span class="detail-val" id="val-email"><span class="loading">Loading…</span></span>
+        <span class="detail-val" id="val-email"><span class="loading">Loading...</span></span>
       </div>
     </div>
 
     <p class="bring-title">What to expect</p>
     <ul class="bring-list">
-      <li>Bring your adidas bag — clean surface, freshly unboxed or lightly used</li>
-      <li>The artist handles everything — no prep or skills needed from your side</li>
-      <li>Arrive 5 minutes before your slot to check in at the station</li>
-      <li>Each piece is unique — the artist works freehand, directly on your bag</li>
+      <li><span class="icon">01</span><span>Bring your adidas bucket hat or t-shirt — clean surface, freshly unboxed or lightly used</span></li>
+      <li><span class="icon">02</span><span>The artist handles everything — no prep or skills needed from your side</span></li>
+      <li><span class="icon">03</span><span>Arrive 5 minutes before your slot to check in at the station</span></li>
+      <li><span class="icon">04</span><span>Each piece is unique — the artist works freehand, directly on your item</span></li>
     </ul>
 
     <a href="index.html" class="btn-back">
@@ -145,45 +164,30 @@
   </div>
 
   <footer>
-    <p>RedBull Midsommer 2026 &nbsp;·&nbsp; adidas Bag Customization</p>
+    <p>RedBull Midsommer 2026 · adidas Customization</p>
   </footer>
 
   <script>
-    // Parse Calendly URL parameters
     const params = new URLSearchParams(window.location.search);
-
-    function fmt(key, fallback) {
-      return params.get(key) || fallback;
-    }
-
-    // Name
-    const firstName = fmt('invitee_first_name', '');
-    const lastName  = fmt('invitee_last_name', '');
-    const fullName  = fmt('invitee_full_name', '') || [firstName, lastName].filter(Boolean).join(' ');
+    const firstName = params.get('invitee_first_name') || '';
+    const fullName  = params.get('invitee_full_name') || [firstName, params.get('invitee_last_name') || ''].filter(Boolean).join(' ');
     if (fullName) {
       document.getElementById('val-name').textContent = fullName;
-      document.getElementById('greeting').textContent =
-        'Hey ' + firstName + ' — your airbrush slot is confirmed. A professional artist will customize your bag live. See you there!';
+      if (firstName) document.getElementById('greeting').textContent =
+        'Hey ' + firstName + ' — your slot is confirmed. A professional artist will customize your piece live. See you there!';
     } else {
-      document.getElementById('val-name').textContent = '—';
+      document.getElementById('val-name').textContent = 'Not provided';
     }
-
-    // Email
-    const email = fmt('invitee_email', '');
+    const email = params.get('invitee_email') || '';
     document.getElementById('val-email').textContent = email ? 'Sent to ' + email : 'Sent to your email';
-
-    // Time — parse ISO8601 event_start_time
-    const startRaw = fmt('event_start_time', '');
+    const startRaw = params.get('event_start_time') || '';
     if (startRaw) {
       try {
         const d = new Date(startRaw);
-        const timeStr = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin' });
-        document.getElementById('val-time').textContent = timeStr + ' (local time)';
-      } catch(e) {
-        document.getElementById('val-time').textContent = startRaw;
-      }
+        document.getElementById('val-time').textContent = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Berlin' }) + ' (local)';
+      } catch(e) { document.getElementById('val-time').textContent = startRaw; }
     } else {
-      document.getElementById('val-time').textContent = '—';
+      document.getElementById('val-time').textContent = 'See confirmation email';
     }
   </script>
 

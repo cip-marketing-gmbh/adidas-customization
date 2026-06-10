@@ -7,10 +7,8 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #000;
-      --white: #fff;
-      --gray-border: #e0e0e0;
-      --gray-muted: #999;
+      --black: #000; --white: #fff;
+      --gray-border: #e0e0e0; --gray-muted: #999;
       --rb-red: #d2003c;
       --font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
@@ -28,21 +26,20 @@
       padding: 48px 24px 32px;
       text-align: center;
     }
-    .hero-label {
-      font-size: 10px; font-weight: 700; letter-spacing: .22em;
-      text-transform: uppercase; color: var(--gray-muted); margin-bottom: 10px;
-    }
     .hero-event {
-      font-size: clamp(11px, 3vw, 13px); font-weight: 700; letter-spacing: .18em;
+      font-size: 10px; font-weight: 700; letter-spacing: .22em;
       text-transform: uppercase; color: var(--rb-red); margin-bottom: 10px;
     }
     .hero-title {
       font-size: clamp(34px, 11vw, 78px);
       font-weight: 900; letter-spacing: -.03em;
-      line-height: .92; text-transform: uppercase;
-      margin-bottom: 18px;
+      line-height: .92; text-transform: uppercase; margin-bottom: 18px;
     }
     .hero-title span { color: var(--rb-red); display: block; }
+    .hero-products {
+      font-size: 11px; font-weight: 700; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--gray-muted); margin-bottom: 12px;
+    }
     .hero-date {
       display: inline-flex; align-items: center; gap: 10px;
       font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
@@ -63,17 +60,14 @@
       position: relative; display: block; text-decoration: none;
       color: var(--white); overflow: hidden; aspect-ratio: 4 / 3;
     }
-    /* Gradient: Red Bull red → adidas black */
     .tile-airbrush {
       background: linear-gradient(135deg, #d2003c 0%, #8a0020 40%, #1a0008 75%, #000 100%);
     }
     .tile-heatpress {
       background: linear-gradient(135deg, #d2003c 0%, #6b0018 35%, #0d0007 70%, #000 100%);
     }
-    /* Subtle animated overlay for depth */
     .tile::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(255,255,255,.06) 0%, transparent 60%);
       pointer-events: none;
     }
@@ -89,7 +83,8 @@
     @media (min-width: 620px) { .tile-content { padding: 26px 28px; } }
 
     .tile-num { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 5px; }
-    .tile-name { font-size: clamp(28px, 6vw, 44px); font-weight: 900; letter-spacing: -.025em; text-transform: uppercase; line-height: 1; margin-bottom: 8px; }
+    .tile-name { font-size: clamp(28px, 6vw, 44px); font-weight: 900; letter-spacing: -.025em; text-transform: uppercase; line-height: 1; margin-bottom: 6px; }
+    .tile-products { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 8px; }
     .tile-desc { font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.55; max-width: 260px; margin-bottom: 16px; }
     .tile-cta {
       display: inline-flex; align-items: center; gap: 7px;
@@ -119,6 +114,7 @@
   <section class="hero">
     <p class="hero-event">RedBull Midsommer 2026</p>
     <h1 class="hero-title">Bag<span>Customization</span></h1>
+    <p class="hero-products">Bucket Hat · T-Shirt</p>
     <div class="hero-date">
       <span>Airbrush: 20 June</span>
       <span class="hero-date-sep"></span>
@@ -132,7 +128,8 @@
       <div class="tile-content">
         <p class="tile-num">01 · 20 June 2026</p>
         <h2 class="tile-name">Airbrush</h2>
-        <p class="tile-desc">A professional artist customizes your bag live — freehand spray art, unique every time.</p>
+        <p class="tile-products">Bucket Hat · T-Shirt</p>
+        <p class="tile-desc">A professional artist customizes your piece live — freehand spray art, unique every time.</p>
         <span class="tile-cta">Book your slot <span class="tile-arrow">→</span></span>
       </div>
     </a>
@@ -141,6 +138,7 @@
       <div class="tile-content">
         <p class="tile-num">02 · 26 June 2026</p>
         <h2 class="tile-name">Heat Press</h2>
+        <p class="tile-products">Bucket Hat · T-Shirt</p>
         <p class="tile-desc">Pick your design, we press it on. Precision transfer — permanent, sharp, built to last.</p>
         <span class="tile-cta">Book your slot <span class="tile-arrow">→</span></span>
       </div>
@@ -149,7 +147,7 @@
   </div>
 
   <footer>
-    <p>RedBull Midsommer 2026 &nbsp;·&nbsp; adidas Bag Customization</p>
+    <p>RedBull Midsommer 2026 · adidas Customization</p>
   </footer>
 
 </body>
