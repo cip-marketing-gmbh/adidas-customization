@@ -15,59 +15,29 @@
     }
     html, body { font-family: var(--font); background: var(--white); color: var(--black); min-height: 100vh; }
 
-    header {
-      padding: 36px 24px 0;
-      display: flex; align-items: center; justify-content: center; gap: 24px;
-    }
+    header { padding: 36px 24px 0; display: flex; align-items: center; justify-content: center; gap: 24px; }
     .logo-adidas img { height: 44px; width: auto; display: block; }
     .logo-divider { width: 1px; height: 32px; background: var(--gray-border); flex-shrink: 0; }
     .logo-redbull svg { height: 28px; width: auto; display: block; }
 
-    .confirm-wrap {
-      max-width: 480px; margin: 44px auto 64px;
-      padding: 0 20px; text-align: center;
-    }
+    .confirm-wrap { max-width: 480px; margin: 44px auto 64px; padding: 0 20px; text-align: center; }
 
-    .check-circle {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: var(--green-light);
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      animation: popIn .5s cubic-bezier(.17,.67,.35,1.4) both;
-    }
+    .check-circle { width: 64px; height: 64px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; animation: popIn .5s cubic-bezier(.17,.67,.35,1.4) both; }
     @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .check-path { stroke-dasharray: 50; stroke-dashoffset: 50; animation: drawCheck .4s .4s ease forwards; }
     @keyframes drawCheck { to { stroke-dashoffset: 0; } }
 
     .confirm-event { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rb-red); margin-bottom: 6px; }
-    .confirm-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--green); margin-bottom: 10px; }
+    .confirm-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--green); margin-bottom: 14px; }
 
-    .station-hero {
-      font-size: clamp(52px, 18vw, 96px);
-      font-weight: 900; letter-spacing: -.04em; text-transform: uppercase;
-      line-height: .88; color: var(--black);
-      margin-bottom: 4px;
-    }
-    .station-type {
-      font-size: 11px; font-weight: 700; letter-spacing: .2em;
-      text-transform: uppercase; color: var(--gray-muted); margin-bottom: 20px;
-    }
+    .station-hero { font-size: clamp(52px, 18vw, 96px); font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; line-height: .88; margin-bottom: 4px; }
+    .station-hero .red { color: var(--rb-red); }
+    .station-type { font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 24px; }
 
-    .confirm-title {
-      font-size: clamp(28px, 8vw, 44px); font-weight: 900;
-      letter-spacing: -.03em; text-transform: uppercase; line-height: .93; margin-bottom: 16px;
-    }
-    .confirm-title span { color: var(--rb-red); display: block; }
-    .confirm-sub { font-size: 13px; color: #555; line-height: 1.65; margin-bottom: 28px; }
+    .confirm-sub { font-size: 14px; color: #333; line-height: 1.65; margin-bottom: 28px; }
 
-    .details-card {
-      background: var(--gray-light); border: 1px solid var(--gray-border);
-      padding: 0 22px; margin-bottom: 28px; text-align: left;
-    }
-    .details-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 12px 0; border-bottom: 1px solid var(--gray-border); gap: 16px;
-    }
+    .details-card { background: var(--gray-light); border: 1px solid var(--gray-border); padding: 0 22px; margin-bottom: 28px; text-align: left; }
+    .details-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--gray-border); gap: 16px; }
     .details-row:last-child { border-bottom: none; }
     .detail-key { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-muted); flex-shrink: 0; }
     .detail-val { font-size: 13px; font-weight: 700; text-align: right; }
@@ -75,24 +45,10 @@
 
     .bring-title { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 14px; }
     .bring-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; text-align: left; }
-    .bring-list li {
-      display: flex; align-items: flex-start; gap: 12px;
-      font-size: 13px; line-height: 1.5;
-    }
-    .bring-list li .icon {
-      flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px;
-      background: var(--black); color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 10px; font-weight: 900;
-    }
+    .bring-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 13px; line-height: 1.5; }
+    .bring-list li .icon { flex-shrink: 0; width: 20px; height: 20px; margin-top: 1px; background: var(--black); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 900; }
 
-    .btn-back {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-      text-decoration: none; color: var(--black);
-      border-bottom: 1.5px solid rgba(0,0,0,.3); padding-bottom: 2px;
-      transition: border-color .2s, gap .25s;
-    }
+    .btn-back { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; text-decoration: none; color: var(--black); border-bottom: 1.5px solid rgba(0,0,0,.3); padding-bottom: 2px; transition: border-color .2s, gap .25s; }
     .btn-back:hover { border-color: var(--black); gap: 12px; }
     .btn-back-arrow { transition: transform .25s; }
     .btn-back:hover .btn-back-arrow { transform: translateX(-4px); }
@@ -113,21 +69,17 @@
 
     <div class="check-circle">
       <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-        <polyline class="check-path" points="7,18 15,26 29,10"
-          stroke="#1a7a3c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polyline class="check-path" points="7,18 15,26 29,10" stroke="#1a7a3c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
 
     <p class="confirm-event">RedBull Midsommer 2026</p>
     <p class="confirm-label">Booking confirmed</p>
 
-    <div class="station-hero">Heat<br>Press</div>
+    <div class="station-hero">Heat<span class="red">Press</span></div>
     <p class="station-type">Bucket Hat · T-Shirt · 26 June 2026</p>
 
-    <h1 class="confirm-title">You're<span>all set.</span></h1>
-    <p class="confirm-sub" id="greeting">
-      Your slot is confirmed. Pick your design at the station, we take care of the rest.
-    </p>
+    <p class="confirm-sub" id="greeting">You're all set. Your slot is confirmed. Pick your design at the station, we take care of the rest.</p>
 
     <div class="details-card">
       <div class="details-row">
@@ -150,15 +102,12 @@
 
     <p class="bring-title">What to expect</p>
     <ul class="bring-list">
-      <li><span class="icon">01</span><span>Bring your adidas bucket hat or t-shirt — clean surface, freshly unboxed or lightly used</span></li>
-      <li><span class="icon">02</span><span>Choose from a selection of designs at the station</span></li>
-      <li><span class="icon">03</span><span>Transfer takes just a few minutes — permanent, sharp, built to last</span></li>
-      <li><span class="icon">04</span><span>Arrive 5 minutes before your slot — up to 5 people can book the same time</span></li>
+      <li><span class="icon">01</span><span>Arrive 5 minutes before your slot to check in at the station</span></li>
+      <li><span class="icon">02</span><span>Bring your adidas bucket hat or t-shirt</span></li>
+      <li><span class="icon">03</span><span>Choose from a selection of designs at the station</span></li>
     </ul>
 
-    <a href="index.html" class="btn-back">
-      <span class="btn-back-arrow">←</span> Back to overview
-    </a>
+    <a href="index.html" class="btn-back"><span class="btn-back-arrow">←</span> Back to overview</a>
 
   </div>
 
@@ -169,11 +118,11 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const firstName = params.get('invitee_first_name') || '';
-    const fullName  = params.get('invitee_full_name') || [firstName, params.get('invitee_last_name') || ''].filter(Boolean).join(' ');
+    const fullName = params.get('invitee_full_name') || [firstName, params.get('invitee_last_name') || ''].filter(Boolean).join(' ');
     if (fullName) {
       document.getElementById('val-name').textContent = fullName;
       if (firstName) document.getElementById('greeting').textContent =
-        'Hey ' + firstName + ' — your slot is confirmed. Pick your design at the station, we take care of the rest. See you there!';
+        'Hey ' + firstName + ' — you\'re all set. Your slot is confirmed. Pick your design at the station, we take care of the rest. See you there!';
     } else {
       document.getElementById('val-name').textContent = 'Not provided';
     }

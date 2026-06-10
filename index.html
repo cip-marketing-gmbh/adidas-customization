@@ -22,84 +22,39 @@
     .logo-divider { width: 1px; height: 32px; background: var(--gray-border); flex-shrink: 0; }
     .logo-redbull svg { height: 28px; width: auto; display: block; }
 
-    .hero {
-      padding: 48px 24px 32px;
-      text-align: center;
-    }
-    .hero-event {
-      font-size: 10px; font-weight: 700; letter-spacing: .22em;
-      text-transform: uppercase; color: var(--rb-red); margin-bottom: 10px;
-    }
+    .hero { padding: 48px 24px 32px; text-align: center; }
+    .hero-event { font-size: 10px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--rb-red); margin-bottom: 10px; }
     .hero-title {
       font-size: clamp(34px, 11vw, 78px);
-      font-weight: 900; letter-spacing: -.03em;
-      line-height: .92; text-transform: uppercase; margin-bottom: 18px;
+      font-weight: 900; letter-spacing: -.03em; line-height: .92; text-transform: uppercase; margin-bottom: 18px;
     }
     .hero-title span { color: var(--rb-red); display: block; }
-    .hero-products {
-      font-size: 11px; font-weight: 700; letter-spacing: .16em;
-      text-transform: uppercase; color: var(--gray-muted); margin-bottom: 12px;
-    }
-    .hero-date {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--gray-muted);
-    }
+    .hero-products { font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 12px; }
+    .hero-date { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-muted); }
     .hero-date-sep { width: 20px; height: 1px; background: var(--gray-border); }
 
-    .tiles {
-      display: grid; grid-template-columns: 1fr;
-      gap: 10px; padding: 28px 16px 56px;
-      max-width: 840px; margin: 0 auto;
-    }
-    @media (min-width: 620px) {
-      .tiles { grid-template-columns: 1fr 1fr; padding: 28px 24px 64px; }
-    }
+    .tiles { display: grid; grid-template-columns: 1fr; gap: 10px; padding: 28px 16px 56px; max-width: 840px; margin: 0 auto; }
+    @media (min-width: 620px) { .tiles { grid-template-columns: 1fr 1fr; padding: 28px 24px 64px; } }
 
-    .tile {
-      position: relative; display: block; text-decoration: none;
-      color: var(--white); overflow: hidden; aspect-ratio: 4 / 3;
-    }
-    .tile-airbrush {
-      background: linear-gradient(135deg, #d2003c 0%, #8a0020 40%, #1a0008 75%, #000 100%);
-    }
-    .tile-heatpress {
-      background: linear-gradient(135deg, #d2003c 0%, #6b0018 35%, #0d0007 70%, #000 100%);
-    }
-    .tile::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(255,255,255,.06) 0%, transparent 60%);
-      pointer-events: none;
-    }
-    .tile-heatpress::before {
-      background: radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255,255,255,.05) 0%, transparent 60%);
-    }
+    .tile { position: relative; display: block; text-decoration: none; color: var(--white); overflow: hidden; aspect-ratio: 4 / 3; }
+    .tile-airbrush { background: linear-gradient(135deg, #d2003c 0%, #8a0020 40%, #1a0008 75%, #000 100%); }
+    .tile-heatpress { background: linear-gradient(135deg, #d2003c 0%, #6b0018 35%, #0d0007 70%, #000 100%); }
+    .tile::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(255,255,255,.06) 0%, transparent 60%); pointer-events: none; }
+    .tile-heatpress::before { background: radial-gradient(ellipse 70% 60% at 20% 80%, rgba(255,255,255,.05) 0%, transparent 60%); }
 
-    .tile-content {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 22px 22px;
-    }
+    .tile-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; }
     @media (min-width: 620px) { .tile-content { padding: 26px 28px; } }
 
     .tile-num { font-size: 10px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 5px; }
     .tile-name { font-size: clamp(28px, 6vw, 44px); font-weight: 900; letter-spacing: -.025em; text-transform: uppercase; line-height: 1; margin-bottom: 6px; }
     .tile-products { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 8px; }
     .tile-desc { font-size: 12px; color: rgba(255,255,255,.6); line-height: 1.55; max-width: 260px; margin-bottom: 16px; }
-    .tile-cta {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-      color: var(--white); border-bottom: 1.5px solid rgba(255,255,255,.4);
-      padding-bottom: 2px; transition: border-color .2s, gap .25s; width: fit-content;
-    }
+    .tile-cta { display: inline-flex; align-items: center; gap: 7px; font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--white); border-bottom: 1.5px solid rgba(255,255,255,.4); padding-bottom: 2px; transition: border-color .2s, gap .25s; width: fit-content; }
     .tile:hover .tile-cta { border-color: var(--white); gap: 12px; }
     .tile-arrow { transition: transform .25s; }
     .tile:hover .tile-arrow { transform: translateX(4px); }
 
-    footer {
-      border-top: 1px solid var(--gray-border);
-      padding: 18px 24px; text-align: center;
-    }
+    footer { border-top: 1px solid var(--gray-border); padding: 18px 24px; text-align: center; }
     footer p { font-size: 10px; color: var(--gray-muted); letter-spacing: .12em; text-transform: uppercase; }
   </style>
 </head>
@@ -113,7 +68,7 @@
 
   <section class="hero">
     <p class="hero-event">RedBull Midsommer 2026</p>
-    <h1 class="hero-title">Bag<span>Customization</span></h1>
+    <h1 class="hero-title">Textile<span>Customization</span></h1>
     <p class="hero-products">Bucket Hat · T-Shirt</p>
     <div class="hero-date">
       <span>Airbrush: 20 June</span>
@@ -139,7 +94,7 @@
         <p class="tile-num">02 · 26 June 2026</p>
         <h2 class="tile-name">Heat Press</h2>
         <p class="tile-products">Bucket Hat · T-Shirt</p>
-        <p class="tile-desc">Pick your design, we press it on. Precision transfer — permanent, sharp, built to last.</p>
+        <p class="tile-desc">Pick your design, we press it on. Precision transfer, permanent and sharp.</p>
         <span class="tile-cta">Book your slot <span class="tile-arrow">→</span></span>
       </div>
     </a>
