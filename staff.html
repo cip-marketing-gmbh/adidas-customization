@@ -218,8 +218,9 @@ function fmtTime(iso) {
 async function loadSection(date, ids, token) {
   const list = document.getElementById(ids.list);
   try {
+    const orgUri = token === TOKEN_AB ? window._uriAB : window._uriHP;
     const url = "https://api.calendly.com/scheduled_events"
-      + "?user=" + encodeURIComponent(window._userUri)
+      + "?organization=" + encodeURIComponent(orgUri)
       + "&min_start_time=" + encodeURIComponent(date + "T00:00:00.000000Z")
       + "&max_start_time=" + encodeURIComponent(date + "T23:59:59.000000Z")
       + "&count=100"
