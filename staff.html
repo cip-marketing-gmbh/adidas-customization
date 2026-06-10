@@ -70,15 +70,12 @@
     .booking-item { display: flex; align-items: center; gap: 10px; padding: 11px 18px; border-bottom: 1px solid var(--gray-border); transition: background .15s; }
     .booking-item:last-child { border-bottom: none; }
     .booking-item:hover { background: var(--gray-light); }
-    .booking-item.cancelled { opacity: .4; }
     .b-time { font-size: 13px; font-weight: 900; min-width: 44px; flex-shrink: 0; }
-    .booking-item.cancelled .b-time { text-decoration: line-through; }
     .b-info { flex: 1; min-width: 0; }
     .b-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .b-email { font-size: 11px; color: var(--gray-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .b-badge { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; flex-shrink: 0; }
     .badge-ok { background: var(--green-bg); color: var(--green); }
-    .badge-no { background: #fef2f2; color: #b91c1c; }
 
     .state-msg { padding: 28px 18px; text-align: center; font-size: 11px; color: var(--gray-muted); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
     .state-msg.err { color: var(--rb-red); }
@@ -136,7 +133,6 @@
       <div class="count-row">
         <div class="count-cell"><div class="c-num" id="ab-total">-</div><div class="c-lbl">Total</div></div>
         <div class="count-cell"><div class="c-num" id="ab-active">-</div><div class="c-lbl">Active</div></div>
-        <div class="count-cell"><div class="c-num" id="ab-cancelled">-</div><div class="c-lbl">Cancelled</div></div>
       </div>
     </div>
     <div class="section">
@@ -149,7 +145,6 @@
       <div class="count-row">
         <div class="count-cell"><div class="c-num" id="hp-total">-</div><div class="c-lbl">Total</div></div>
         <div class="count-cell"><div class="c-num" id="hp-active">-</div><div class="c-lbl">Active</div></div>
-        <div class="count-cell"><div class="c-num" id="hp-cancelled">-</div><div class="c-lbl">Cancelled</div></div>
       </div>
     </div>
   </div>
@@ -232,15 +227,7 @@ async function loadSection(date, ids) {
     const data = await api(url);
     const evts = data.collection || [];
 
-    // Also fetch cancelled
-    const urlCancelled = url.replace("status=active", "status=canceled");
-    let evtsCancelled = [];
-    try {
-      const dataCancelled = await api(urlCancelled);
-      evtsCancelled = dataCancelled.collection || [];
-    } catch(e) {}
-
-    const allEvts = [...evts, ...evtsCancelled];
+    const allEvts = [...evts];
     const bookings = [];
 
     for (const ev of allEvts) {
@@ -253,7 +240,7 @@ async function loadSection(date, ids) {
             time: fmtTime(ev.start_time),
             name: i.name || "Unknown",
             email: i.email || "",
-            cancelled: i.status === "canceled" || ev.status === "canceled"
+            cancelled: false
           });
         }
       } catch(e) {
@@ -262,13 +249,11 @@ async function loadSection(date, ids) {
     }
 
     bookings.sort((a,b) => a.sortMs - b.sortMs);
-    const active = bookings.filter(b => !b.cancelled).length;
-    const cancelled = bookings.filter(b => b.cancelled).length;
+    const active = bookings.length;
 
     document.getElementById(ids.count).textContent = active + " booked";
     document.getElementById(ids.total).textContent = bookings.length;
     document.getElementById(ids.active).textContent = active;
-    document.getElementById(ids.cancelled).textContent = cancelled;
 
     if (!bookings.length) {
       list.innerHTML = '<li class="state-msg">No bookings yet</li>';
@@ -276,13 +261,12 @@ async function loadSection(date, ids) {
     }
 
     list.innerHTML = bookings.map(b => `
-      <li class="booking-item ${b.cancelled ? "cancelled" : ""}">
+      <li class="booking-item">
         <span class="b-time">${b.time}</span>
         <div class="b-info">
           <div class="b-name">${b.name}</div>
           <div class="b-email">${b.email}</div>
         </div>
-        <span class="b-badge ${b.cancelled ? "badge-no" : "badge-ok"}">${b.cancelled ? "Cancelled" : "Active"}</span>
       </li>`).join("");
 
   } catch(e) {
@@ -304,8 +288,8 @@ async function loadAll() {
     }
     // Both events are on 20 June 2026
     await Promise.all([
-      loadSection("2026-06-20", { list:"ab-list", count:"ab-count", total:"ab-total", active:"ab-active", cancelled:"ab-cancelled" }),
-      loadSection("2026-06-20", { list:"hp-list", count:"hp-count", total:"hp-total", active:"hp-active", cancelled:"hp-cancelled" })
+      loadSection("2026-06-20", { list:"ab-list", count:"ab-count", total:"ab-total", active:"ab-active" }),
+      loadSection("2026-06-20", { list:"hp-list", count:"hp-count", total:"hp-total", active:"hp-active" })
     ]);
     upd.textContent = new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
   } catch(e) {
