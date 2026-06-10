@@ -284,14 +284,13 @@ async function loadAll() {
   try {
     if (!window._uriAB) {
       const me = await api("https://api.calendly.com/users/me", TOKEN_AB);
-      // Use organization URI if available, fall back to user URI
       window._uriAB = me.resource.current_organization || me.resource.uri;
-      window._userUriAB = me.resource.uri;
+      console.log("AB org URI:", window._uriAB);
     }
     if (!window._uriHP) {
       const me = await api("https://api.calendly.com/users/me", TOKEN_HP);
       window._uriHP = me.resource.current_organization || me.resource.uri;
-      window._userUriHP = me.resource.uri;
+      console.log("HP org URI:", window._uriHP);
     }
     await Promise.all([
       loadSection("2026-06-20", { list:"ab-list", count:"ab-count", total:"ab-total", active:"ab-active" }, TOKEN_AB),
