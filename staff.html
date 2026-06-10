@@ -152,7 +152,8 @@
 </div>
 
 <script>
-const TOKEN = "eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzgxMDg1NzI1LCJqdGkiOiJiNTM2M2YyNC1iZDQxLTQwMzktOGFjZS1jMDE3MDNkNjhmZjUiLCJ1c2VyX3V1aWQiOiIzMzFiMjNhNi03NTk2LTQ5ZTUtYTljNy1mZDYzMWI2YjdmNTAiLCJzY29wZSI6ImF2YWlsYWJpbGl0eTpyZWFkIGF2YWlsYWJpbGl0eTp3cml0ZSBldmVudF90eXBlczpyZWFkIGV2ZW50X3R5cGVzOndyaXRlIGxvY2F0aW9uczpyZWFkIHJvdXRpbmdfZm9ybXM6cmVhZCBzaGFyZXM6d3JpdGUgc2NoZWR1bGVkX2V2ZW50czpyZWFkIHNjaGVkdWxlZF9ldmVudHM6d3JpdGUgc2NoZWR1bGluZ19saW5rczp3cml0ZSBncm91cHM6cmVhZCBvcmdhbml6YXRpb25zOnJlYWQgb3JnYW5pemF0aW9uczp3cml0ZSB1c2VyczpyZWFkIGNvbnRhY3RzOnJlYWQgY29udGFjdHM6d3JpdGUgYWN0aXZpdHlfbG9nOnJlYWQgZGF0YV9jb21wbGlhbmNlOndyaXRlIG91dGdvaW5nX2NvbW11bmljYXRpb25zOnJlYWQgd2ViaG9va3M6cmVhZCB3ZWJob29rczp3cml0ZSJ9.fnxVnRfe3Ltx6tzJjUNWTk90uDtmhLe8a8MDqMnvl29RVc436hDRGGkAWUJYmhcrfbk5Qx0ZoLA1IsTopp0wyg";
+const TOKEN_AB = "eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzgxMDkxODk1LCJqdGkiOiIyNzBhNzE3NC1jMmQ3LTQ5NDktOTFiOS1iYmQ0MDVmN2E4YTIiLCJ1c2VyX3V1aWQiOiJESEREQ0o3TlBCT1paWUlPIiwic2NvcGUiOiJhdmFpbGFiaWxpdHk6cmVhZCBhdmFpbGFiaWxpdHk6d3JpdGUgZXZlbnRfdHlwZXM6cmVhZCBldmVudF90eXBlczp3cml0ZSBsb2NhdGlvbnM6cmVhZCByb3V0aW5nX2Zvcm1zOnJlYWQgc2hhcmVzOndyaXRlIHNjaGVkdWxlZF9ldmVudHM6cmVhZCBzY2hlZHVsZWRfZXZlbnRzOndyaXRlIHNjaGVkdWxpbmdfbGlua3M6d3JpdGUgZ3JvdXBzOnJlYWQgb3JnYW5pemF0aW9uczpyZWFkIG9yZ2FuaXphdGlvbnM6d3JpdGUgdXNlcnM6cmVhZCBjb250YWN0czpyZWFkIGNvbnRhY3RzOndyaXRlIGFjdGl2aXR5X2xvZzpyZWFkIGRhdGFfY29tcGxpYW5jZTp3cml0ZSBvdXRnb2luZ19jb21tdW5pY2F0aW9uczpyZWFkIHdlYmhvb2tzOnJlYWQgd2ViaG9va3M6d3JpdGUifQ.hhlwlPkR1yWKm9JyiHzcFsxlgFjn2_yZxakIykYlXTucm7IAoM5pYky39Gl_iSr98WrkS50M366KrbkhB22MRw";
+const TOKEN_HP = "eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNzgxMDg1NzI1LCJqdGkiOiJiNTM2M2YyNC1iZDQxLTQwMzktOGFjZS1jMDE3MDNkNjhmZjUiLCJ1c2VyX3V1aWQiOiIzMzFiMjNhNi03NTk2LTQ5ZTUtYTljNy1mZDYzMWI2YjdmNTAiLCJzY29wZSI6ImF2YWlsYWJpbGl0eTpyZWFkIGF2YWlsYWJpbGl0eTp3cml0ZSBldmVudF90eXBlczpyZWFkIGV2ZW50X3R5cGVzOndyaXRlIGxvY2F0aW9uczpyZWFkIHJvdXRpbmdfZm9ybXM6cmVhZCBzaGFyZXM6d3JpdGUgc2NoZWR1bGVkX2V2ZW50czpyZWFkIHNjaGVkdWxlZF9ldmVudHM6d3JpdGUgc2NoZWR1bGluZ19saW5rczp3cml0ZSBncm91cHM6cmVhZCBvcmdhbml6YXRpb25zOnJlYWQgb3JnYW5pemF0aW9uczp3cml0ZSB1c2VyczpyZWFkIGNvbnRhY3RzOnJlYWQgY29udGFjdHM6d3JpdGUgYWN0aXZpdHlfbG9nOnJlYWQgZGF0YV9jb21wbGlhbmNlOndyaXRlIG91dGdvaW5nX2NvbW11bmljYXRpb25zOnJlYWQgd2ViaG9va3M6cmVhZCB3ZWJob29rczp3cml0ZSJ9.fnxVnRfe3Ltx6tzJjUNWTk90uDtmhLe8a8MDqMnvl29RVc436hDRGGkAWUJYmhcrfbk5Qx0ZoLA1IsTopp0wyg";
 const PW = "red26bull";
 const SESSION_KEY = "rb_staff_auth";
 
@@ -195,10 +196,10 @@ function logout() {
   document.getElementById("pw-input").value = "";
 }
 
-async function api(url) {
+async function api(url, token) {
   const r = await fetch(url, {
     headers: {
-      "Authorization": "Bearer " + TOKEN,
+      "Authorization": "Bearer " + token,
       "Content-Type": "application/json"
     }
   });
@@ -214,7 +215,7 @@ function fmtTime(iso) {
   catch(e) { return iso; }
 }
 
-async function loadSection(date, ids) {
+async function loadSection(date, ids, token) {
   const list = document.getElementById(ids.list);
   try {
     const url = "https://api.calendly.com/scheduled_events"
@@ -224,7 +225,7 @@ async function loadSection(date, ids) {
       + "&count=100"
       + "&status=active";
 
-    const data = await api(url);
+    const data = await api(url, token);
     const evts = data.collection || [];
 
     const allEvts = [...evts];
@@ -233,7 +234,7 @@ async function loadSection(date, ids) {
     for (const ev of allEvts) {
       const uuid = ev.uri.split("/").pop();
       try {
-        const inv = await api("https://api.calendly.com/scheduled_events/" + uuid + "/invitees?count=100");
+        const inv = await api("https://api.calendly.com/scheduled_events/" + uuid + "/invitees?count=100", token);
         for (const i of inv.collection || []) {
           bookings.push({
             sortMs: new Date(ev.start_time).getTime(),
@@ -281,15 +282,17 @@ async function loadAll() {
   const upd = document.getElementById("last-updated");
   dot.classList.remove("error");
   try {
-    if (!window._userUri) {
-      const me = await api("https://api.calendly.com/users/me");
-      window._userUri = me.resource.uri;
-      console.log("User URI:", window._userUri);
+    if (!window._uriAB) {
+      const me = await api("https://api.calendly.com/users/me", TOKEN_AB);
+      window._uriAB = me.resource.uri;
     }
-    // Both events are on 20 June 2026
+    if (!window._uriHP) {
+      const me = await api("https://api.calendly.com/users/me", TOKEN_HP);
+      window._uriHP = me.resource.uri;
+    }
     await Promise.all([
-      loadSection("2026-06-20", { list:"ab-list", count:"ab-count", total:"ab-total", active:"ab-active" }),
-      loadSection("2026-06-20", { list:"hp-list", count:"hp-count", total:"hp-total", active:"hp-active" })
+      loadSection("2026-06-20", { list:"ab-list", count:"ab-count", total:"ab-total", active:"ab-active" }, TOKEN_AB),
+      loadSection("2026-06-20", { list:"hp-list", count:"hp-count", total:"hp-total", active:"hp-active" }, TOKEN_HP)
     ]);
     upd.textContent = new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
   } catch(e) {
