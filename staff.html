@@ -78,9 +78,19 @@
     .badge-ok { background: var(--green-bg); color: var(--green); }
 
     .state-msg { padding: 28px 18px; text-align: center; font-size: 11px; color: var(--gray-muted); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-    .time-group-header { display: flex; align-items: center; gap: 12px; padding: 8px 18px; background: var(--black); }
-    .time-group-label { font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--white); }
-    .time-group-badge { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-left: auto; }
+    .time-group-header { display: flex; align-items: center; gap: 14px; padding: 10px 18px; background: var(--black); cursor: pointer; user-select: none; }
+    .time-group-header:hover { background: #1a1a1a; }
+    .time-group-label { font-size: 18px; font-weight: 900; letter-spacing: -.01em; color: var(--white); }
+    .time-group-badge { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-left: auto; }
+    .time-group-toggle { font-size: 12px; color: rgba(255,255,255,.5); transition: transform .2s; flex-shrink: 0; }
+    .time-group-toggle.collapsed { transform: rotate(-90deg); }
+    .time-group-rows { }
+    .time-group-rows.collapsed { display: none; }
+    .b-time { font-size: 13px; font-weight: 900; min-width: 44px; flex-shrink: 0; color: var(--black); }
+    .section-count { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); }
+    .status-text { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--black); }
+    .section-date-bar { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); padding: 7px 18px; border-bottom: 1px solid var(--gray-border); background: var(--gray-light); }
+    .c-lbl { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); }
     .state-msg.err { color: var(--rb-red); }
 
     .count-row { display: flex; border-top: 1px solid var(--gray-border); }
@@ -275,22 +285,23 @@ async function loadSection(date, ids, token) {
     const isGrouped = ids.list === "hp-list"; // only group Heat Press
 
     if (isGrouped) {
-      list.innerHTML = times.map(t => {
+      list.innerHTML = times.map((t, i) => {
         const items = grouped[t];
+        const groupId = "grp-" + i;
         const rows = items.map(b => `
           <li class="booking-item">
-            <span class="b-time" style="visibility:hidden;min-width:44px">${t}</span>
             <div class="b-info">
               <div class="b-name">${b.name}</div>
               <div class="b-email">${b.email}</div>
             </div>
           </li>`).join("");
         return `
-          <li class="time-group-header">
+          <li class="time-group-header" onclick="toggleGroup('${groupId}', this)">
             <span class="time-group-label">${t}</span>
             <span class="time-group-badge">${items.length} / 5</span>
+            <span class="time-group-toggle" id="toggle-${groupId}">&#9660;</span>
           </li>
-          ${rows}`;
+          <ul class="time-group-rows" id="${groupId}">${rows}</ul>`;
       }).join("");
     } else {
       list.innerHTML = bookings.map(b => `
@@ -308,6 +319,13 @@ async function loadSection(date, ids, token) {
     console.error("loadSection error", date, e);
     throw e;
   }
+}
+
+function toggleGroup(id, header) {
+  const rows = document.getElementById(id);
+  const toggle = document.getElementById("toggle-" + id);
+  const isCollapsed = rows.classList.toggle("collapsed");
+  toggle.classList.toggle("collapsed", isCollapsed);
 }
 
 async function loadAll() {
