@@ -78,6 +78,9 @@
     .badge-ok { background: var(--green-bg); color: var(--green); }
 
     .state-msg { padding: 28px 18px; text-align: center; font-size: 11px; color: var(--gray-muted); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .time-group-header { display: flex; align-items: center; gap: 12px; padding: 8px 18px; background: var(--black); }
+    .time-group-label { font-size: 11px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--white); }
+    .time-group-badge { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-left: auto; }
     .state-msg.err { color: var(--rb-red); }
 
     .count-row { display: flex; border-top: 1px solid var(--gray-border); }
@@ -262,14 +265,43 @@ async function loadSection(date, ids, token) {
       return;
     }
 
-    list.innerHTML = bookings.map(b => `
-      <li class="booking-item">
-        <span class="b-time">${b.time}</span>
-        <div class="b-info">
-          <div class="b-name">${b.name}</div>
-          <div class="b-email">${b.email}</div>
-        </div>
-      </li>`).join("");
+    // Group by time slot
+    const grouped = {};
+    for (const b of bookings) {
+      if (!grouped[b.time]) grouped[b.time] = [];
+      grouped[b.time].push(b);
+    }
+    const times = Object.keys(grouped).sort();
+    const isGrouped = ids.list === "hp-list"; // only group Heat Press
+
+    if (isGrouped) {
+      list.innerHTML = times.map(t => {
+        const items = grouped[t];
+        const rows = items.map(b => `
+          <li class="booking-item">
+            <span class="b-time" style="visibility:hidden;min-width:44px">${t}</span>
+            <div class="b-info">
+              <div class="b-name">${b.name}</div>
+              <div class="b-email">${b.email}</div>
+            </div>
+          </li>`).join("");
+        return `
+          <li class="time-group-header">
+            <span class="time-group-label">${t}</span>
+            <span class="time-group-badge">${items.length} / 5</span>
+          </li>
+          ${rows}`;
+      }).join("");
+    } else {
+      list.innerHTML = bookings.map(b => `
+        <li class="booking-item">
+          <span class="b-time">${b.time}</span>
+          <div class="b-info">
+            <div class="b-name">${b.name}</div>
+            <div class="b-email">${b.email}</div>
+          </div>
+        </li>`).join("");
+    }
 
   } catch(e) {
     list.innerHTML = `<li class="state-msg err">Error: ${e.message}</li>`;
