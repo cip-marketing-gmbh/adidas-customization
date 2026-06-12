@@ -20,7 +20,7 @@
     .login-logos img { height: 36px; width: auto; }
     .login-logos svg { height: 22px; width: auto; }
     .logo-div { width: 1px; height: 28px; background: var(--gray-border); }
-    .login-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--gray-muted); margin-bottom: 8px; }
+    .login-label { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--black); margin-bottom: 8px; }
     .login-title { font-size: clamp(28px, 8vw, 44px); font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; line-height: .93; margin-bottom: 32px; }
     .login-title span { color: var(--rb-red); display: block; }
     .login-input { width: 100%; max-width: 300px; padding: 14px 16px; border: 1.5px solid var(--gray-border); font-family: var(--font); font-size: 14px; font-weight: 600; letter-spacing: .08em; outline: none; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; transition: border-color .2s; background: var(--white); }
@@ -45,13 +45,13 @@
     .dash-event { font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--rb-red); margin-bottom: 6px; }
     .dash-title { font-size: clamp(24px, 7vw, 42px); font-weight: 900; letter-spacing: -.03em; text-transform: uppercase; line-height: .93; margin-bottom: 6px; }
     .dash-title span { color: var(--rb-red); }
-    .dash-sub { font-size: 10px; color: var(--gray-muted); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+    .dash-sub { font-size: 10px; color: var(--black); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
 
     .status-bar { display: flex; align-items: center; gap: 10px; padding: 10px 20px; border-top: 1px solid var(--gray-border); border-bottom: 1px solid var(--gray-border); margin: 0 auto 20px; max-width: 900px; }
     .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
     .status-dot.error { background: var(--rb-red); animation: none; }
     @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
-    .status-text { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gray-muted); flex: 1; }
+    .status-text { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--black); flex: 1; }
     .status-text b { color: var(--black); }
     .refresh-btn { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; background: none; border: 1px solid var(--gray-border); padding: 6px 12px; cursor: pointer; font-family: var(--font); transition: border-color .2s; }
     .refresh-btn:hover { border-color: var(--black); }
@@ -63,8 +63,8 @@
     .section-header { padding: 14px 18px 10px; border-bottom: 1px solid var(--gray-border); display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; }
     .section-name { font-size: clamp(22px, 5vw, 30px); font-weight: 900; letter-spacing: -.025em; text-transform: uppercase; line-height: .9; }
     .section-name .red { color: var(--rb-red); display: block; }
-    .section-count { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-muted); padding-bottom: 2px; }
-    .section-date-bar { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-muted); padding: 7px 18px; border-bottom: 1px solid var(--gray-border); background: var(--gray-light); }
+    .section-count { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); padding-bottom: 2px; }
+    .section-date-bar { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); padding: 7px 18px; border-bottom: 1px solid var(--gray-border); background: var(--gray-light); }
 
     .booking-list { list-style: none; }
     .booking-item { display: flex; align-items: center; gap: 10px; padding: 11px 18px; border-bottom: 1px solid var(--gray-border); transition: background .15s; }
@@ -73,7 +73,7 @@
     .b-time { font-size: 13px; font-weight: 900; min-width: 44px; flex-shrink: 0; }
     .b-info { flex: 1; min-width: 0; }
     .b-name { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .b-email { font-size: 11px; color: var(--gray-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .b-email { font-size: 11px; color: #444; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .b-badge { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; padding: 3px 7px; flex-shrink: 0; }
     .badge-ok { background: var(--green-bg); color: var(--green); }
 
@@ -84,7 +84,7 @@
     .time-group-badge { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-left: auto; }
     .time-group-toggle { font-size: 12px; color: rgba(255,255,255,.5); transition: transform .2s; flex-shrink: 0; }
     .time-group-toggle.collapsed { transform: rotate(-90deg); }
-    .time-group-rows { }
+    .time-group-rows { display: block; list-style: none; padding: 0; }
     .time-group-rows.collapsed { display: none; }
     .b-time { font-size: 13px; font-weight: 900; min-width: 44px; flex-shrink: 0; color: var(--black); }
     .section-count { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); }
@@ -97,10 +97,10 @@
     .count-cell { flex: 1; padding: 10px 0; text-align: center; border-right: 1px solid var(--gray-border); }
     .count-cell:last-child { border-right: none; }
     .c-num { font-size: 20px; font-weight: 900; letter-spacing: -.02em; }
-    .c-lbl { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gray-muted); }
+    .c-lbl { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--black); }
 
     footer { border-top: 1px solid var(--gray-border); padding: 16px 24px; text-align: center; }
-    footer p { font-size: 10px; color: var(--gray-muted); letter-spacing: .12em; text-transform: uppercase; }
+    footer p { font-size: 10px; color: var(--black); letter-spacing: .12em; text-transform: uppercase; }
   </style>
 </head>
 <body>
@@ -289,19 +289,19 @@ async function loadSection(date, ids, token) {
         const items = grouped[t];
         const groupId = "grp-" + i;
         const rows = items.map(b => `
-          <li class="booking-item">
+          <div class="booking-item">
             <div class="b-info">
               <div class="b-name">${b.name}</div>
               <div class="b-email">${b.email}</div>
             </div>
-          </li>`).join("");
+          </div>`).join("");
         return `
-          <li class="time-group-header" onclick="toggleGroup('${groupId}', this)">
+          <li class="time-group-header" onclick="toggleGroup('${groupId}')">
             <span class="time-group-label">${t}</span>
             <span class="time-group-badge">${items.length} / 5</span>
             <span class="time-group-toggle" id="toggle-${groupId}">&#9660;</span>
           </li>
-          <ul class="time-group-rows" id="${groupId}">${rows}</ul>`;
+          <li class="time-group-rows" id="${groupId}">${rows}</li>`;
       }).join("");
     } else {
       list.innerHTML = bookings.map(b => `
@@ -321,7 +321,7 @@ async function loadSection(date, ids, token) {
   }
 }
 
-function toggleGroup(id, header) {
+function toggleGroup(id) {
   const rows = document.getElementById(id);
   const toggle = document.getElementById("toggle-" + id);
   const isCollapsed = rows.classList.toggle("collapsed");
